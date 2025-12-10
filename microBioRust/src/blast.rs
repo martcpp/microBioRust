@@ -24,12 +24,14 @@
 //! Several different output formats can be specified, here we provide parsers for two common output formats:
 //! The BLAST+ outfmt 5 (an XML verbose format) and the outfmt 6 (the single line tabular format)
 //!
-//!```
+//!
 //!  Example to save a provided BLAST outfmt 6 single line tabular format into json
 //!
-//! ```rust
+//!```rust
 //!    use std::io::Write;
 //!    use tokio::io::BufReader as TokioBufReader;
+//!    use std::io::Cursor;
+//!    use microBioRust::blast::stream_outfmt6_to_json;
 //!   
 //!    async fn test_stream_tab_to_json() {
 //!        let data = "q1  h1      99.0    10      0       0       1       10      1       10      1e-5    50";
@@ -38,12 +40,14 @@
 //!        let res = stream_outfmt6_to_json(reader).await;
 //!        println!("results are {:?}", &res);
 //!    }
-//!
+//!```
 //! Example to create a completely new blast XML record
 //!
 //!```rust
 //! use std::io::Write;
 //! use tokio::io::BufReader as TokioBufReader;
+//! use std::io::Cursor;
+//! use microBioRust::blast::AsyncBlastXmlIter;
 //!
 //! async fn test_async_xml_iter_simple() {
 //!       let xml = r#"<?xml version="1.0"?>
@@ -84,10 +88,7 @@
 //!        assert_eq!(it.query_def.unwrap(), "My query");
 //!        assert_eq!(it.hits.len(), 1);
 //!    }
-//!}
 //!
-//!
-//! ```rust
 //!```
 
 use anyhow::{Context, Result};
