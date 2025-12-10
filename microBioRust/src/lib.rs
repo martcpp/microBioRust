@@ -11,4 +11,5 @@
 #![allow(non_snake_case)]
 pub mod embl;
 pub mod gbk;
+pub mod blast;
 pub mod record;
