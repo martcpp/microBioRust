@@ -9,7 +9,7 @@ using Async where possible, parsing bioinformatic file types
 **Format expansion**
 Integration of common types and parsers such as:
 - [ ] VCF
-- [ ] BLAST output in various modes, -5 (XML) and -6 (one line per hit), compat with Diamond, MMSeqs2
+- [x] BLAST output in various modes, -5 (XML) and -6 (one line per hit), compat with Diamond, MMSeqs2
 - [ ] GTF
 - [ ] link ups with formats from **rust-bio**, **noodles-vcf**
 - [ ] look into metabolomics options (like KEGG) some are not open-source
